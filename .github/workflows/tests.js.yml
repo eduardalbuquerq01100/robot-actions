@@ -44,11 +44,11 @@ jobs:
         gh_access_token: ${{ secrets.GITHUB_TOKEN }}
         report_path: logs
 
-    - name: Upload Report - Chrome 
+    - name: Upload Report 
       uses: actions/upload-pages-artifact@v3.0.1
       if: always()
       with: 
-        name: Teste Report 
+        name: Teste Report - Chrome 
         path: logs  
 
         
@@ -89,11 +89,11 @@ jobs:
         gh_access_token: ${{ secrets.GITHUB_TOKEN }}
         report_path: logs
 
-    - name: Upload Report - Firefox 
+    - name: Upload Report
       uses: actions/upload-pages-artifact@v3.0.1
       if: always()
       with: 
-        name: Teste Report 
+        name: Teste Report - Firefox 
         path: logs  
 
         
