@@ -1,0 +1,547 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0 (Python 3.12.3 on win32)" generated="2024-09-28T23:44:02.868937" rpa="false" schemaversion="5">
+<suite id="s1" name="Tests" source="C:\QAx\projects\robot-actions\tests">
+<suite id="s1-s1" name="Login" source="C:\QAx\projects\robot-actions\tests\login.robot">
+<test id="s1-s1-t1" name="Senha incorreta" line="10">
+<kw name="Start Browser" owner="base" type="SETUP">
+<kw name="New Browser" owner="Browser">
+<msg time="2024-09-28T23:44:04.513591" level="INFO">{"browser": "chromium", "headless": true, "chromiumSandbox": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 0.0, "timeout": 30000.0, "tracesDir": "C:\\QAx\\projects\\robot-actions\\.logs\\browser\\traces\\a1517b96-3e22-4df4-83db-01fe59373916"}</msg>
+<msg time="2024-09-28T23:44:05.548789" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":true,"chromiumSandbox":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":0,"timeout":30000,"tracesDir":"C:\\QAx\\projects\\robot-actions\\.logs\\browser\\traces\\a1517b96-3e22-4df4-83db-01fe59373916"}</msg>
+<arg>browser=${BROWSER}</arg>
+<arg>headless=${IS_HEADLESS}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new playwright Browser with specified options.</doc>
+<status status="PASS" start="2024-09-28T23:44:04.513591" elapsed="1.035471"/>
+</kw>
+<kw name="New Page" owner="Browser">
+<msg time="2024-09-28T23:44:11.363154" level="INFO">Successfully initialized new page object and opened url: https://loginxp.vercel.app</msg>
+<msg time="2024-09-28T23:44:11.363154" level="INFO">No context was open. New context was automatically opened when this page is created.</msg>
+<arg>${BASE_URL}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<status status="PASS" start="2024-09-28T23:44:05.549062" elapsed="5.814092"/>
+</kw>
+<status status="PASS" start="2024-09-28T23:44:04.512566" elapsed="6.850588"/>
+</kw>
+<kw name="Submit Credentials" owner="actions">
+<kw name="Fill Text" owner="Browser">
+<msg time="2024-09-28T23:44:11.364233" level="INFO">Fills the text 'qa' in the given field.</msg>
+<arg>css=[name=user]</arg>
+<arg>${user}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2024-09-28T23:44:11.364233" elapsed="0.060576"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2024-09-28T23:44:11.424809" level="INFO">Fills the text '123456' in the given field.</msg>
+<arg>css=[name=pass]</arg>
+<arg>${pass}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2024-09-28T23:44:11.424809" elapsed="0.027013"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2024-09-28T23:44:11.452822" level="INFO">Clicks the element 'css=button &gt;&gt; text=Entrar'.</msg>
+<arg>css=button &gt;&gt; text=Entrar</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2024-09-28T23:44:11.451822" elapsed="0.071088"/>
+</kw>
+<arg>qa</arg>
+<arg>123456</arg>
+<status status="PASS" start="2024-09-28T23:44:11.363154" elapsed="0.159756"/>
+</kw>
+<kw name="Toast have text" owner="actions">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-09-28T23:44:11.522910" level="INFO">${selector} = div[role=status]</msg>
+<var>${selector}</var>
+<arg>div[role=status]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-09-28T23:44:11.522910" elapsed="0.000000"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2024-09-28T23:44:11.536336" level="INFO">Waited for Element with selector css=div[role=status] at state visible</msg>
+<arg>css=${selector}</arg>
+<arg>visible</arg>
+<arg>5</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2024-09-28T23:44:11.522910" elapsed="0.014433"/>
+</kw>
+<kw name="Get Text" owner="Browser">
+<msg time="2024-09-28T23:44:11.585111" level="INFO">Text: 'Oops! Credenciais inválidas :('</msg>
+<arg>css=${selector}</arg>
+<arg>equal</arg>
+<arg>${target}</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<status status="PASS" start="2024-09-28T23:44:11.537855" elapsed="0.047256"/>
+</kw>
+<kw name="Take Screenshot" owner="Browser">
+<msg time="2024-09-28T23:44:12.084962" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="browser/screenshot/robotframework-browser-screenshot-1.png" target="_blank"&gt;&lt;img src="browser/screenshot/robotframework-browser-screenshot-1.png" width="800px"/&gt;&lt;/a&gt;</msg>
+<arg>selector=${selector}</arg>
+<tag>PageContent</tag>
+<doc>Takes a screenshot of the current window or element and saves it to disk.</doc>
+<status status="PASS" start="2024-09-28T23:44:11.585111" elapsed="0.500847"/>
+</kw>
+<arg>Oops! Credenciais inválidas :(</arg>
+<status status="PASS" start="2024-09-28T23:44:11.522910" elapsed="0.563048"/>
+</kw>
+<kw name="Finish Browser" owner="base" type="TEARDOWN">
+<kw name="Take Screenshot" owner="Browser">
+<msg time="2024-09-28T23:44:12.340687" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="browser/screenshot/robotframework-browser-screenshot-2.png" target="_blank"&gt;&lt;img src="browser/screenshot/robotframework-browser-screenshot-2.png" width="800px"/&gt;&lt;/a&gt;</msg>
+<arg>fullPage=true</arg>
+<tag>PageContent</tag>
+<doc>Takes a screenshot of the current window or element and saves it to disk.</doc>
+<status status="PASS" start="2024-09-28T23:44:12.086958" elapsed="0.253729"/>
+</kw>
+<status status="PASS" start="2024-09-28T23:44:12.085958" elapsed="0.254729"/>
+</kw>
+<status status="PASS" start="2024-09-28T23:44:04.510584" elapsed="7.830103"/>
+</test>
+<test id="s1-s1-t2" name="Usuário não cadastrado" line="14">
+<kw name="Start Browser" owner="base" type="SETUP">
+<kw name="New Browser" owner="Browser">
+<msg time="2024-09-28T23:44:12.460837" level="INFO">Switching browser to browser=365a542c-57f4-45c0-b8f8-a3d5ff2dcb2f</msg>
+<msg time="2024-09-28T23:44:12.475040" level="INFO">Successfully changed active browser: browser=365a542c-57f4-45c0-b8f8-a3d5ff2dcb2f</msg>
+<msg time="2024-09-28T23:44:12.476038" level="INFO">Reusing existing browser with id: browser=365a542c-57f4-45c0-b8f8-a3d5ff2dcb2f</msg>
+<arg>browser=${BROWSER}</arg>
+<arg>headless=${IS_HEADLESS}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new playwright Browser with specified options.</doc>
+<status status="PASS" start="2024-09-28T23:44:12.459837" elapsed="0.016201"/>
+</kw>
+<kw name="New Page" owner="Browser">
+<msg time="2024-09-28T23:44:14.161904" level="INFO">Successfully initialized new page object and opened url: https://loginxp.vercel.app</msg>
+<msg time="2024-09-28T23:44:14.161904" level="INFO">No context was open. New context was automatically opened when this page is created.</msg>
+<arg>${BASE_URL}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<status status="PASS" start="2024-09-28T23:44:12.476038" elapsed="1.685866"/>
+</kw>
+<status status="PASS" start="2024-09-28T23:44:12.459137" elapsed="1.702767"/>
+</kw>
+<kw name="Submit Credentials" owner="actions">
+<kw name="Fill Text" owner="Browser">
+<msg time="2024-09-28T23:44:14.162905" level="INFO">Fills the text 'teste123' in the given field.</msg>
+<arg>css=[name=user]</arg>
+<arg>${user}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2024-09-28T23:44:14.162905" elapsed="0.064661"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2024-09-28T23:44:14.228072" level="INFO">Fills the text '123456' in the given field.</msg>
+<arg>css=[name=pass]</arg>
+<arg>${pass}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2024-09-28T23:44:14.227566" elapsed="0.035311"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2024-09-28T23:44:14.262877" level="INFO">Clicks the element 'css=button &gt;&gt; text=Entrar'.</msg>
+<arg>css=button &gt;&gt; text=Entrar</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2024-09-28T23:44:14.262877" elapsed="0.078098"/>
+</kw>
+<arg>teste123</arg>
+<arg>123456</arg>
+<status status="PASS" start="2024-09-28T23:44:14.161904" elapsed="0.179071"/>
+</kw>
+<kw name="Toast have text" owner="actions">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-09-28T23:44:14.341980" level="INFO">${selector} = div[role=status]</msg>
+<var>${selector}</var>
+<arg>div[role=status]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-09-28T23:44:14.341980" elapsed="0.000000"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2024-09-28T23:44:14.351004" level="INFO">Waited for Element with selector css=div[role=status] at state visible</msg>
+<arg>css=${selector}</arg>
+<arg>visible</arg>
+<arg>5</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2024-09-28T23:44:14.341980" elapsed="0.009024"/>
+</kw>
+<kw name="Get Text" owner="Browser">
+<msg time="2024-09-28T23:44:14.377944" level="INFO">Text: 'Oops! Credenciais inválidas :('</msg>
+<arg>css=${selector}</arg>
+<arg>equal</arg>
+<arg>${target}</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<status status="PASS" start="2024-09-28T23:44:14.352003" elapsed="0.025941"/>
+</kw>
+<kw name="Take Screenshot" owner="Browser">
+<msg time="2024-09-28T23:44:14.819663" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="browser/screenshot/robotframework-browser-screenshot-3.png" target="_blank"&gt;&lt;img src="browser/screenshot/robotframework-browser-screenshot-3.png" width="800px"/&gt;&lt;/a&gt;</msg>
+<arg>selector=${selector}</arg>
+<tag>PageContent</tag>
+<doc>Takes a screenshot of the current window or element and saves it to disk.</doc>
+<status status="PASS" start="2024-09-28T23:44:14.378957" elapsed="0.440706"/>
+</kw>
+<arg>Oops! Credenciais inválidas :(</arg>
+<status status="PASS" start="2024-09-28T23:44:14.341980" elapsed="0.477683"/>
+</kw>
+<kw name="Finish Browser" owner="base" type="TEARDOWN">
+<kw name="Take Screenshot" owner="Browser">
+<msg time="2024-09-28T23:44:15.009281" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="browser/screenshot/robotframework-browser-screenshot-4.png" target="_blank"&gt;&lt;img src="browser/screenshot/robotframework-browser-screenshot-4.png" width="800px"/&gt;&lt;/a&gt;</msg>
+<arg>fullPage=true</arg>
+<tag>PageContent</tag>
+<doc>Takes a screenshot of the current window or element and saves it to disk.</doc>
+<status status="PASS" start="2024-09-28T23:44:14.819663" elapsed="0.189618"/>
+</kw>
+<status status="PASS" start="2024-09-28T23:44:14.819663" elapsed="0.189618"/>
+</kw>
+<status status="PASS" start="2024-09-28T23:44:12.447243" elapsed="2.562038"/>
+</test>
+<test id="s1-s1-t3" name="Usuário deve ser obrigatório" line="18">
+<kw name="Start Browser" owner="base" type="SETUP">
+<kw name="New Browser" owner="Browser">
+<msg time="2024-09-28T23:44:15.077086" level="INFO">Switching browser to browser=365a542c-57f4-45c0-b8f8-a3d5ff2dcb2f</msg>
+<msg time="2024-09-28T23:44:15.079108" level="INFO">Successfully changed active browser: browser=365a542c-57f4-45c0-b8f8-a3d5ff2dcb2f</msg>
+<msg time="2024-09-28T23:44:15.079108" level="INFO">Reusing existing browser with id: browser=365a542c-57f4-45c0-b8f8-a3d5ff2dcb2f</msg>
+<arg>browser=${BROWSER}</arg>
+<arg>headless=${IS_HEADLESS}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new playwright Browser with specified options.</doc>
+<status status="PASS" start="2024-09-28T23:44:15.076085" elapsed="0.003023"/>
+</kw>
+<kw name="New Page" owner="Browser">
+<msg time="2024-09-28T23:44:16.820928" level="INFO">Successfully initialized new page object and opened url: https://loginxp.vercel.app</msg>
+<msg time="2024-09-28T23:44:16.820928" level="INFO">No context was open. New context was automatically opened when this page is created.</msg>
+<arg>${BASE_URL}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<status status="PASS" start="2024-09-28T23:44:15.079108" elapsed="1.741820"/>
+</kw>
+<status status="PASS" start="2024-09-28T23:44:15.076085" elapsed="1.744843"/>
+</kw>
+<kw name="Submit Credentials" owner="actions">
+<kw name="Fill Text" owner="Browser">
+<msg time="2024-09-28T23:44:16.821928" level="INFO">Fills the text '' in the given field.</msg>
+<arg>css=[name=user]</arg>
+<arg>${user}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2024-09-28T23:44:16.821928" elapsed="0.036945"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2024-09-28T23:44:16.858873" level="INFO">Fills the text '123456' in the given field.</msg>
+<arg>css=[name=pass]</arg>
+<arg>${pass}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2024-09-28T23:44:16.858873" elapsed="0.022017"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2024-09-28T23:44:16.881893" level="INFO">Clicks the element 'css=button &gt;&gt; text=Entrar'.</msg>
+<arg>css=button &gt;&gt; text=Entrar</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2024-09-28T23:44:16.880890" elapsed="0.076413"/>
+</kw>
+<arg>${EMPTY}</arg>
+<arg>123456</arg>
+<status status="PASS" start="2024-09-28T23:44:16.820928" elapsed="0.136936"/>
+</kw>
+<kw name="Toast have text" owner="actions">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-09-28T23:44:16.957864" level="INFO">${selector} = div[role=status]</msg>
+<var>${selector}</var>
+<arg>div[role=status]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-09-28T23:44:16.957864" elapsed="0.000000"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2024-09-28T23:44:16.975102" level="INFO">Waited for Element with selector css=div[role=status] at state visible</msg>
+<arg>css=${selector}</arg>
+<arg>visible</arg>
+<arg>5</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2024-09-28T23:44:16.957864" elapsed="0.017238"/>
+</kw>
+<kw name="Get Text" owner="Browser">
+<msg time="2024-09-28T23:44:17.011696" level="INFO">Text: 'Informe o seu nome de usuário!'</msg>
+<arg>css=${selector}</arg>
+<arg>equal</arg>
+<arg>${target}</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<status status="PASS" start="2024-09-28T23:44:16.975102" elapsed="0.036594"/>
+</kw>
+<kw name="Take Screenshot" owner="Browser">
+<msg time="2024-09-28T23:44:17.376158" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="browser/screenshot/robotframework-browser-screenshot-5.png" target="_blank"&gt;&lt;img src="browser/screenshot/robotframework-browser-screenshot-5.png" width="800px"/&gt;&lt;/a&gt;</msg>
+<arg>selector=${selector}</arg>
+<tag>PageContent</tag>
+<doc>Takes a screenshot of the current window or element and saves it to disk.</doc>
+<status status="PASS" start="2024-09-28T23:44:17.011696" elapsed="0.364462"/>
+</kw>
+<arg>Informe o seu nome de usuário!</arg>
+<status status="PASS" start="2024-09-28T23:44:16.957864" elapsed="0.418294"/>
+</kw>
+<kw name="Finish Browser" owner="base" type="TEARDOWN">
+<kw name="Take Screenshot" owner="Browser">
+<msg time="2024-09-28T23:44:17.553743" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="browser/screenshot/robotframework-browser-screenshot-6.png" target="_blank"&gt;&lt;img src="browser/screenshot/robotframework-browser-screenshot-6.png" width="800px"/&gt;&lt;/a&gt;</msg>
+<arg>fullPage=true</arg>
+<tag>PageContent</tag>
+<doc>Takes a screenshot of the current window or element and saves it to disk.</doc>
+<status status="PASS" start="2024-09-28T23:44:17.376158" elapsed="0.177585"/>
+</kw>
+<status status="PASS" start="2024-09-28T23:44:17.376158" elapsed="0.177585"/>
+</kw>
+<status status="PASS" start="2024-09-28T23:44:15.070097" elapsed="2.483646"/>
+</test>
+<test id="s1-s1-t4" name="Senha deve ser obrigatória" line="22">
+<kw name="Start Browser" owner="base" type="SETUP">
+<kw name="New Browser" owner="Browser">
+<msg time="2024-09-28T23:44:17.614125" level="INFO">Switching browser to browser=365a542c-57f4-45c0-b8f8-a3d5ff2dcb2f</msg>
+<msg time="2024-09-28T23:44:17.617124" level="INFO">Successfully changed active browser: browser=365a542c-57f4-45c0-b8f8-a3d5ff2dcb2f</msg>
+<msg time="2024-09-28T23:44:17.617637" level="INFO">Reusing existing browser with id: browser=365a542c-57f4-45c0-b8f8-a3d5ff2dcb2f</msg>
+<arg>browser=${BROWSER}</arg>
+<arg>headless=${IS_HEADLESS}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new playwright Browser with specified options.</doc>
+<status status="PASS" start="2024-09-28T23:44:17.614125" elapsed="0.003512"/>
+</kw>
+<kw name="New Page" owner="Browser">
+<msg time="2024-09-28T23:44:18.808909" level="INFO">Successfully initialized new page object and opened url: https://loginxp.vercel.app</msg>
+<msg time="2024-09-28T23:44:18.808909" level="INFO">No context was open. New context was automatically opened when this page is created.</msg>
+<arg>${BASE_URL}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<status status="PASS" start="2024-09-28T23:44:17.617637" elapsed="1.191272"/>
+</kw>
+<status status="PASS" start="2024-09-28T23:44:17.613125" elapsed="1.195784"/>
+</kw>
+<kw name="Submit Credentials" owner="actions">
+<kw name="Fill Text" owner="Browser">
+<msg time="2024-09-28T23:44:18.809920" level="INFO">Fills the text 'teste123' in the given field.</msg>
+<arg>css=[name=user]</arg>
+<arg>${user}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2024-09-28T23:44:18.809920" elapsed="0.037933"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2024-09-28T23:44:18.848862" level="INFO">Fills the text '' in the given field.</msg>
+<arg>css=[name=pass]</arg>
+<arg>${pass}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2024-09-28T23:44:18.847853" elapsed="0.012184"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2024-09-28T23:44:18.860037" level="INFO">Clicks the element 'css=button &gt;&gt; text=Entrar'.</msg>
+<arg>css=button &gt;&gt; text=Entrar</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2024-09-28T23:44:18.860037" elapsed="0.059730"/>
+</kw>
+<arg>teste123</arg>
+<arg>${EMPTY}</arg>
+<status status="PASS" start="2024-09-28T23:44:18.808909" elapsed="0.111855"/>
+</kw>
+<kw name="Toast have text" owner="actions">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-09-28T23:44:18.920764" level="INFO">${selector} = div[role=status]</msg>
+<var>${selector}</var>
+<arg>div[role=status]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-09-28T23:44:18.920764" elapsed="0.000000"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2024-09-28T23:44:18.928825" level="INFO">Waited for Element with selector css=div[role=status] at state visible</msg>
+<arg>css=${selector}</arg>
+<arg>visible</arg>
+<arg>5</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2024-09-28T23:44:18.920764" elapsed="0.008061"/>
+</kw>
+<kw name="Get Text" owner="Browser">
+<msg time="2024-09-28T23:44:18.975833" level="INFO">Text: 'Informe a sua senha secreta!'</msg>
+<arg>css=${selector}</arg>
+<arg>equal</arg>
+<arg>${target}</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<status status="PASS" start="2024-09-28T23:44:18.928825" elapsed="0.048538"/>
+</kw>
+<kw name="Take Screenshot" owner="Browser">
+<msg time="2024-09-28T23:44:19.472994" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="browser/screenshot/robotframework-browser-screenshot-7.png" target="_blank"&gt;&lt;img src="browser/screenshot/robotframework-browser-screenshot-7.png" width="800px"/&gt;&lt;/a&gt;</msg>
+<arg>selector=${selector}</arg>
+<tag>PageContent</tag>
+<doc>Takes a screenshot of the current window or element and saves it to disk.</doc>
+<status status="PASS" start="2024-09-28T23:44:18.977363" elapsed="0.496651"/>
+</kw>
+<arg>Informe a sua senha secreta!</arg>
+<status status="PASS" start="2024-09-28T23:44:18.920764" elapsed="0.553250"/>
+</kw>
+<kw name="Finish Browser" owner="base" type="TEARDOWN">
+<kw name="Take Screenshot" owner="Browser">
+<msg time="2024-09-28T23:44:19.714927" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="browser/screenshot/robotframework-browser-screenshot-8.png" target="_blank"&gt;&lt;img src="browser/screenshot/robotframework-browser-screenshot-8.png" width="800px"/&gt;&lt;/a&gt;</msg>
+<arg>fullPage=true</arg>
+<tag>PageContent</tag>
+<doc>Takes a screenshot of the current window or element and saves it to disk.</doc>
+<status status="PASS" start="2024-09-28T23:44:19.474986" elapsed="0.239941"/>
+</kw>
+<status status="PASS" start="2024-09-28T23:44:19.474986" elapsed="0.239941"/>
+</kw>
+<status status="PASS" start="2024-09-28T23:44:17.610147" elapsed="2.104780"/>
+</test>
+<test id="s1-s1-t5" name="Login com sucesso" line="26">
+<kw name="Start Browser" owner="base" type="SETUP">
+<kw name="New Browser" owner="Browser">
+<msg time="2024-09-28T23:44:19.778721" level="INFO">Switching browser to browser=365a542c-57f4-45c0-b8f8-a3d5ff2dcb2f</msg>
+<msg time="2024-09-28T23:44:19.780703" level="INFO">Successfully changed active browser: browser=365a542c-57f4-45c0-b8f8-a3d5ff2dcb2f</msg>
+<msg time="2024-09-28T23:44:19.780703" level="INFO">Reusing existing browser with id: browser=365a542c-57f4-45c0-b8f8-a3d5ff2dcb2f</msg>
+<arg>browser=${BROWSER}</arg>
+<arg>headless=${IS_HEADLESS}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new playwright Browser with specified options.</doc>
+<status status="PASS" start="2024-09-28T23:44:19.778721" elapsed="0.001982"/>
+</kw>
+<kw name="New Page" owner="Browser">
+<msg time="2024-09-28T23:44:21.019934" level="INFO">Successfully initialized new page object and opened url: https://loginxp.vercel.app</msg>
+<msg time="2024-09-28T23:44:21.019934" level="INFO">No context was open. New context was automatically opened when this page is created.</msg>
+<arg>${BASE_URL}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<status status="PASS" start="2024-09-28T23:44:19.780703" elapsed="1.239231"/>
+</kw>
+<status status="PASS" start="2024-09-28T23:44:19.777695" elapsed="1.242239"/>
+</kw>
+<kw name="Submit Credentials" owner="actions">
+<kw name="Fill Text" owner="Browser">
+<msg time="2024-09-28T23:44:21.020933" level="INFO">Fills the text 'qa' in the given field.</msg>
+<arg>css=[name=user]</arg>
+<arg>${user}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2024-09-28T23:44:21.020933" elapsed="0.050946"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2024-09-28T23:44:21.073816" level="INFO">Fills the text 'xperience' in the given field.</msg>
+<arg>css=[name=pass]</arg>
+<arg>${pass}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2024-09-28T23:44:21.072837" elapsed="0.014845"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2024-09-28T23:44:21.088692" level="INFO">Clicks the element 'css=button &gt;&gt; text=Entrar'.</msg>
+<arg>css=button &gt;&gt; text=Entrar</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2024-09-28T23:44:21.087682" elapsed="0.072750"/>
+</kw>
+<arg>qa</arg>
+<arg>xperience</arg>
+<status status="PASS" start="2024-09-28T23:44:21.019934" elapsed="0.140498"/>
+</kw>
+<kw name=" Modal have text" owner="actions">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-09-28T23:44:21.161453" level="INFO">${ele} = css=#swal2-title</msg>
+<var>${ele}</var>
+<arg>css=#swal2-title</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-09-28T23:44:21.161453" elapsed="0.000000"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2024-09-28T23:44:21.178582" level="INFO">Waited for Element with selector css=#swal2-title at state visible</msg>
+<arg>${ele}</arg>
+<arg>visible</arg>
+<arg>5</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2024-09-28T23:44:21.161453" elapsed="0.017129"/>
+</kw>
+<kw name="Get Text" owner="Browser">
+<msg time="2024-09-28T23:44:21.215776" level="INFO">Text: 'Tudo certo!'</msg>
+<arg>${ele}</arg>
+<arg>equal</arg>
+<arg>${target}</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<status status="PASS" start="2024-09-28T23:44:21.178582" elapsed="0.037194"/>
+</kw>
+<arg>Tudo certo!</arg>
+<status status="PASS" start="2024-09-28T23:44:21.160432" elapsed="0.055344"/>
+</kw>
+<kw name="Finish Browser" owner="base" type="TEARDOWN">
+<kw name="Take Screenshot" owner="Browser">
+<msg time="2024-09-28T23:44:21.391706" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="browser/screenshot/robotframework-browser-screenshot-9.png" target="_blank"&gt;&lt;img src="browser/screenshot/robotframework-browser-screenshot-9.png" width="800px"/&gt;&lt;/a&gt;</msg>
+<arg>fullPage=true</arg>
+<tag>PageContent</tag>
+<doc>Takes a screenshot of the current window or element and saves it to disk.</doc>
+<status status="PASS" start="2024-09-28T23:44:21.217351" elapsed="0.174355"/>
+</kw>
+<status status="PASS" start="2024-09-28T23:44:21.215776" elapsed="0.175930"/>
+</kw>
+<tag>smoke</tag>
+<status status="PASS" start="2024-09-28T23:44:19.775034" elapsed="1.617681"/>
+</test>
+<doc>Suíte de testes de login</doc>
+<status status="PASS" start="2024-09-28T23:44:02.914850" elapsed="18.567244"/>
+</suite>
+<status status="PASS" start="2024-09-28T23:44:02.870946" elapsed="18.616904"/>
+</suite>
+<statistics>
+<total>
+<stat pass="5" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">smoke</stat>
+</tag>
+<suite>
+<stat pass="5" fail="0" skip="0" id="s1" name="Tests">Tests</stat>
+<stat pass="5" fail="0" skip="0" id="s1-s1" name="Login">Tests.Login</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
