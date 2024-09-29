@@ -27,4 +27,3 @@ jobs:
         python-version: 3.12
     - name: Test
       run: node --version 
-      run: python --version
